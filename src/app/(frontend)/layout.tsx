@@ -11,7 +11,7 @@ import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "ContentFlo",
-  description: "Bespoke content-driven web platforms",
+  description: "Bespoke content-driven web platforms.",
 };
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
