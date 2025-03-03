@@ -19,6 +19,13 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          defer
+          src="https://umami-gkgo0gscg8kc88oowcgg8css.coolify.contentflo.io/script.js"
+          data-website-id="319e8379-39d7-4f14-bfa9-7c1a9c5a6a8a"
+        ></script>
+      </head>
       <body
         className={`${GeistSans.className} bg-background text-foreground antialiased`}
       >
