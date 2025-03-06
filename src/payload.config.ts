@@ -6,6 +6,7 @@ import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { muxVideoPlugin } from "@oversightstudio/mux-video";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 
 //Collections
 import { Users } from "./collections/Users";
@@ -54,5 +55,18 @@ export default buildConfig({
       },
     }),
   ],
+  email: nodemailerAdapter({
+    defaultFromAddress: "support@contentflo.io",
+    defaultFromName: "ContentFlo Support",
+    // Nodemailer transportOptions
+    transportOptions: {
+      host: process.env.SMTP_HOST,
+      port: 587,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    },
+  }),
   telemetry: false,
 });
