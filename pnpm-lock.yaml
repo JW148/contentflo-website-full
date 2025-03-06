@@ -14,6 +14,9 @@ importers:
       '@mux/mux-player-react':
         specifier: ^3.3.0
         version: 3.3.0(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@mux/mux-video-react':
+        specifier: ^0.24.3
+        version: 0.24.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@notionhq/client':
         specifier: ^2.2.16
         version: 2.2.16
@@ -80,6 +83,9 @@ importers:
       lucide-react:
         specifier: ^0.476.0
         version: 0.476.0(react@19.0.0)
+      media-chrome:
+        specifier: ^4.7.1
+        version: 4.7.1(react@19.0.0)
       motion:
         specifier: ^12.4.7
         version: 12.4.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -949,6 +955,19 @@ packages:
 
   '@mux/mux-uploader@1.1.2':
     resolution: {integrity: sha512-WbByb/67TNCC2eNS/a4j9SUJOffvp2fy+fwoj32nWZQyYSujNDg5l10+Ez2O4qoR8BywpfQSo2traskCBfEnNA==}
+
+  '@mux/mux-video-react@0.24.3':
+    resolution: {integrity: sha512-RjR7hKBPee3OjUspIs9/ODUsbXweRcD5UAHnI3GM22m4YUgLwEcTx+7W8zzfOWBXtgbjhGEvtAums934XjRo7A==}
+    peerDependencies:
+      '@types/react': ^17.0.0 || ^17.0.0-0 || ^18 || ^18.0.0-0 || ^19 || ^19.0.0-0
+      '@types/react-dom': '*'
+      react: ^17.0.2 || ^17.0.0-0 || ^18 || ^18.0.0-0 || ^19 || ^19.0.0-0
+      react-dom: ^17.0.2 || ^17.0.2-0 || ^18 || ^18.0.0-0 || ^19 || ^19.0.0-0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
 
   '@mux/mux-video@0.24.3':
     resolution: {integrity: sha512-HM5oasXfmYVfmsTMv1lZIW/OkHEQMJwavrl1gI4p13bdlmmUu2CNARiTv/tYATJ9+NkYHlU3RsteHXx7tK7+vg==}
@@ -6354,6 +6373,16 @@ snapshots:
   '@mux/mux-uploader@1.1.2':
     dependencies:
       '@mux/upchunk': 3.5.0
+
+  '@mux/mux-video-react@0.24.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@mux/playback-core': 0.28.3
+      prop-types: 15.8.1
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    optionalDependencies:
+      '@types/react': 19.0.10
+      '@types/react-dom': 19.0.4(@types/react@19.0.10)
 
   '@mux/mux-video@0.24.3':
     dependencies:

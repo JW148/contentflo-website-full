@@ -421,7 +421,7 @@ export interface Home {
     /**
      * Write a short description of the feature
      */
-    body?: {
+    body: {
       root: {
         type: string;
         children: {
@@ -435,7 +435,7 @@ export interface Home {
         version: number;
       };
       [k: string]: unknown;
-    } | null;
+    };
     id?: string | null;
   }[];
   processHeading: string;
@@ -460,7 +460,7 @@ export interface Home {
     /**
      * Write a short description of the process step
      */
-    body?: {
+    body: {
       root: {
         type: string;
         children: {
@@ -474,7 +474,7 @@ export interface Home {
         version: number;
       };
       [k: string]: unknown;
-    } | null;
+    };
     id?: string | null;
   }[];
   testimonialsTitle: string;
@@ -493,7 +493,7 @@ export interface Home {
     };
     [k: string]: unknown;
   };
-  videoTestimonial?: (string | null) | MuxVideo;
+  videoTestimonial: string | MuxVideo;
   companyLogo: string | Media;
   name: string;
   company: string;
@@ -516,30 +516,28 @@ export interface Home {
   /**
    * Text-based testimonials to be displayed next to the video testimonial.
    */
-  testimonials?:
-    | {
-        companyLogo: string | Media;
-        name: string;
-        company: string;
-        role: string;
-        quote: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
+  testimonials: {
+    companyLogo: string | Media;
+    name: string;
+    company: string;
+    role: string;
+    quote: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
           [k: string]: unknown;
-        };
-        id?: string | null;
-      }[]
-    | null;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    id?: string | null;
+  }[];
   faq?:
     | {
         question: string;

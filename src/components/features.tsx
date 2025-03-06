@@ -1,99 +1,58 @@
-import {
-  IoShieldCheckmark,
-  IoColorPalette,
-  IoLockClosed,
-  IoExtensionPuzzle,
-} from "react-icons/io5";
+"use client";
+
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import type { RichTextType, FeatureType } from "@/types/types";
 
-const feature1 = () => (
-  <p>
-    ContentFlo is a software house that specialises in <b>bespoke</b> content
-    management web platforms with a focus on giving you <b>more control</b> over
-    your <b>brand identity</b> and <b>content</b>.
-  </p>
-);
+import { icons } from "@/utilities/getIcon";
 
-const feature2 = () => (
-  <p>
-    Our software allows you to host courses directly on <b>your own website</b>,
-    giving you more brand control and <b>data ownership</b>.{" "}
-  </p>
-);
+type IconKeys = keyof typeof icons;
 
-const feature3 = () => (
-  <>
-    <p>
-      You own your data, unlike other <b>third-party platforms</b>.
-    </p>
-    <p>
-      The platform we built for you is, managed by you and hosted on your
-      domain.
-    </p>
-  </>
-);
+interface FeaturesProps {
+  heading: string;
+  subheading: RichTextType;
+  features: FeatureType[];
+}
 
-const feature4 = () => (
-  <p>
-    Tailor the look and feel of your courses to
-    <b> match your brand perfectly</b>.
-  </p>
-);
-
-const features = [
-  {
-    name: "Full Brand Control",
-    description: feature1(),
-    icon: IoShieldCheckmark,
-  },
-  {
-    name: "Website Integration",
-    description: feature2(),
-    icon: IoExtensionPuzzle,
-  },
-  {
-    name: "Date Ownership",
-    description: feature3(),
-    icon: IoLockClosed,
-  },
-  {
-    name: "Enhanced Custom Branding Flexibility",
-    description: feature4(),
-    icon: IoColorPalette,
-  },
-];
-
-export default function Features() {
+export default function Features({
+  heading,
+  subheading,
+  features,
+}: FeaturesProps) {
   return (
     <section className="container space-y-16 py-24 md:py-32">
       <div className="mx-auto max-w-[58rem] text-center">
         <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl">
-          Why Choose ContentFlo?
+          {heading}
         </h2>
-        <p className="mt-4 text-muted-foreground sm:text-lg">
-          Discover how <b>ContentFlo</b> can transform your content with our
-          innovative features.
-        </p>
+        <RichText
+          data={subheading}
+          className="mt-4 text-muted-foreground sm:text-lg"
+        />
       </div>
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
-        {features.map((feature) => (
-          <HoverBorderGradient
-            key={feature.name}
-            containerClassName="rounded-lg mx-auto h-full px-0"
-            as={"div"}
-            className="relative p-0 h-full overflow-hidden border bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px] "
-          >
-            <div className="flex flex-col p-8 size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
-              <div className="flex items-center gap-4">
-                <feature.icon className="h-8 w-8" />
-                <h3 className="font-bold">{feature.name}</h3>
+        {features.map((feature) => {
+          const Icon = icons[feature.icon as IconKeys];
+          return (
+            <HoverBorderGradient
+              key={feature.id}
+              containerClassName="rounded-lg mx-auto h-full px-0"
+              as={"div"}
+              className="relative p-0 h-full overflow-hidden border bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px] "
+            >
+              <div className="flex flex-col p-8 size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
+                <div className="flex items-center gap-4">
+                  <Icon className="h-8 w-8" />
+                  <h3 className="font-bold">{feature.title}</h3>
+                </div>
+                <RichText
+                  data={feature.body}
+                  className="flex flex-col mt-2 text-muted-foreground gap-4"
+                />
               </div>
-              <div className="flex flex-col mt-2 text-muted-foreground gap-4">
-                {feature.description}
-              </div>
-            </div>
-          </HoverBorderGradient>
-        ))}
+            </HoverBorderGradient>
+          );
+        })}
       </div>
     </section>
   );

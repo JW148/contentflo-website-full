@@ -4,11 +4,26 @@ import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import MuxVideo from "@mux/mux-video-react";
 import Image from "next/image";
+import type { TestimonialsType } from "@/types/types";
+import type { MuxVideo as MuxVideoType } from "@/payload-types";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
-export function VideoTestimonial() {
+interface VideoTestimonialProps {
+  video: string | MuxVideoType;
+  testimonial: TestimonialsType;
+}
+
+export function VideoTestimonial({
+  video,
+  testimonial,
+}: VideoTestimonialProps) {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  let companyLogo;
+  if (testimonial.companyLogo && typeof testimonial.companyLogo !== "string")
+    companyLogo = testimonial.companyLogo.url;
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -38,19 +53,26 @@ export function VideoTestimonial() {
 
   return (
     <div className="relative h-full w-full border border-muted rounded-xl ">
-      <MuxVideo
-        ref={videoRef}
-        muted={isMuted}
-        playbackId={"K51vDQG14bUtt66sFjXCcN2a1A101o9FWZiSGpAtnDgc"}
-        style={{
-          height: "100%",
-          maxWidth: "100%",
-          objectFit: "cover",
-          overflow: "hidden",
-        }}
-        playsInline
-        className="mx-auto rounded-xl md:rounded-none"
-      />
+      {typeof video !== "string" && (
+        <MuxVideo
+          ref={videoRef}
+          muted={isMuted}
+          playbackId={
+            typeof video !== "string"
+              ? video.playbackOptions![0].playbackId!
+              : ""
+          }
+          style={{
+            height: "100%",
+            maxWidth: "100%",
+            objectFit: "cover",
+            overflow: "hidden",
+          }}
+          playsInline
+          className="mx-auto rounded-xl md:rounded-none"
+        />
+      )}
+
       <div className="size-full flex flex-col p-6 justify-between absolute bg-gradient-to-t from-black to-transparent text-white rounded-xl overflow-hidden  inset-0">
         <div className="flex justify-end space-x-2">
           <button
@@ -69,23 +91,20 @@ export function VideoTestimonial() {
           <div className="flex items-center space-x-3">
             <div className="h-10 w-10 relative rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
               <Image
-                src="/abzone.svg?height=40&width=40"
-                alt="Michael Rivera"
+                src={companyLogo || "/placeholder.svg"}
+                alt="Person Name"
                 fill
                 className="h-9 w-9 rounded-full object-cover"
               />
             </div>
             <div className="text-left">
-              <p className="font-medium text-lg">AbdAllah Mitchell</p>
-              <p className="text-sm opacity-80">Founder, AB ZONE</p>
+              <p className="font-medium text-lg">{testimonial.name}</p>
+              <p className="text-sm opacity-80">
+                {testimonial.role}, {testimonial.company}
+              </p>
             </div>
           </div>
-
-          <p className="text-lg font-medium">
-            &quot;Everything fits perfectly into my website. It looks
-            professional, feels native, and enhances my credibility&quot;
-          </p>
-
+          <RichText data={testimonial.quote} className="text-lg font-medium" />
           <button
             onClick={togglePlay}
             className="rounded-full bg-white text-black px-4 py-2 font-medium flex items-center space-x-2 hover:bg-opacity-90 transition"

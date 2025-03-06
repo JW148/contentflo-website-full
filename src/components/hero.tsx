@@ -1,9 +1,20 @@
 import { Button } from "@/components/ui/button";
-
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { FlipWords } from "./ui/flip-words";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
-export default function Hero() {
+import type { RichTextType } from "@/types/types";
+
+interface HeroProps {
+  header: string;
+  flipWords: {
+    word: string;
+  }[];
+  subheading: RichTextType;
+}
+
+export default function Hero({ header, flipWords, subheading }: HeroProps) {
+  const cleanFlipWords = flipWords.map((item) => item.word);
   return (
     <section className="container flex min-h-[calc(100vh-3.5rem)] max-w-screen-2xl flex-col items-center justify-center space-y-8 py-24 text-center md:py-32">
       <div className="space-y-4">
@@ -17,14 +28,14 @@ export default function Hero() {
           </span>
         </HoverBorderGradient>
         <h1 className="bg-gradient-to-br from-foreground from-30% via-foreground/90 to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl">
-          Take Full Control Of
+          {header}
           <br />
-          <FlipWords words={["Your Brand.", "Your Content.", "Your Data."]} />
+          <FlipWords words={cleanFlipWords} />
         </h1>
-        <p className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-          Create, manage, and deliver your own courses and content directly from
-          your website—no third-party needed.
-        </p>
+        <RichText
+          data={subheading}
+          className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
+        />
       </div>
       <div className="flex flex-col md:flex-row gap-4">
         <Button asChild size={"lg"}>

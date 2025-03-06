@@ -626,6 +626,7 @@ export const Home: GlobalConfig = {
             {
               name: "body",
               type: "richText",
+              required: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -873,6 +874,7 @@ export const Home: GlobalConfig = {
             {
               name: "body",
               type: "richText",
+              required: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -908,53 +910,55 @@ export const Home: GlobalConfig = {
           type: "richText",
           required: true,
           defaultValue: {
-            children: [
-              {
-                children: [
-                  {
-                    detail: 0,
-                    format: 0,
-                    mode: "normal",
-                    style: "",
-                    text: "Don't just take our word for it. Hear from the people who use ",
-                    type: "text",
-                    version: 1,
-                  },
+            root: {
+              children: [
+                {
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: "normal",
+                      style: "",
+                      text: "Don't just take our word for it. Hear from the people who use ",
+                      type: "text",
+                      version: 1,
+                    },
 
-                  {
-                    detail: 0,
-                    format: 1,
-                    mode: "normal",
-                    style: "",
-                    text: "ContentFlo",
-                    type: "text",
-                    version: 1,
-                  },
+                    {
+                      detail: 0,
+                      format: 1,
+                      mode: "normal",
+                      style: "",
+                      text: "ContentFlo",
+                      type: "text",
+                      version: 1,
+                    },
 
-                  {
-                    detail: 0,
-                    format: 0,
-                    mode: "normal",
-                    style: "",
-                    text: " every day.",
-                    type: "text",
-                    version: 1,
-                  },
-                ],
-                direction: "ltr",
-                format: "",
-                indent: 0,
-                type: "paragraph",
-                version: 1,
-                textFormat: 0,
-                textStyle: "",
-              },
-            ],
-            direction: "ltr",
-            format: "",
-            indent: 0,
-            type: "root",
-            version: 1,
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: "normal",
+                      style: "",
+                      text: " every day.",
+                      type: "text",
+                      version: 1,
+                    },
+                  ],
+                  direction: "ltr",
+                  format: "",
+                  indent: 0,
+                  type: "paragraph",
+                  version: 1,
+                  textFormat: 0,
+                  textStyle: "",
+                },
+              ],
+              direction: "ltr",
+              format: "",
+              indent: 0,
+              type: "root",
+              version: 1,
+            },
           },
           editor: lexicalEditor({
             features: ({ rootFeatures }) => {
@@ -976,7 +980,7 @@ export const Home: GlobalConfig = {
             {
               name: "videoTestimonial",
               label: "Video",
-              // required: true,
+              required: true,
               type: "relationship",
               relationTo: "mux-video",
             },
@@ -1066,21 +1070,6 @@ export const Home: GlobalConfig = {
           type: "array",
           defaultValue: [
             {
-              companyLogo: {
-                alt: "EYW",
-                filename: "eyw.png",
-                mimeType: "image/png",
-                filesize: 798,
-                width: 28,
-                height: 28,
-                focalX: 50,
-                focalY: 50,
-                createdAt: "2025-03-05T14:48:45.563Z",
-                updatedAt: "2025-03-05T14:48:45.563Z",
-                id: "67c8644de7e6deb31f97f0eb",
-                url: "/api/media/file/eyw.png",
-                thumbnailURL: null,
-              },
               name: "Julie Powell",
               company: "EYW",
               role: "Head of Training, Learning and Development",
@@ -1118,21 +1107,6 @@ export const Home: GlobalConfig = {
               id: "67c863af2cb4c22893fa8aac",
             },
             {
-              companyLogo: {
-                alt: "Lunaria",
-                filename: "lunaria.png",
-                mimeType: "image/png",
-                filesize: 1024,
-                width: 32,
-                height: 32,
-                focalX: 50,
-                focalY: 50,
-                createdAt: "2025-03-05T14:48:59.002Z",
-                updatedAt: "2025-03-05T14:48:59.002Z",
-                id: "67c8645be7e6deb31f97f121",
-                url: "/api/media/file/lunaria.png",
-                thumbnailURL: null,
-              },
               name: "Grant Forrest",
               company: "Lunaria LTD",
               role: "Technical Director",
@@ -1172,6 +1146,7 @@ export const Home: GlobalConfig = {
           ],
           maxRows: 2,
           minRows: 2,
+          required: true,
           fields: [
             {
               name: "companyLogo",
