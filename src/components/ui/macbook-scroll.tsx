@@ -173,6 +173,7 @@ export const Lid = ({
           alt=""
           fill
           className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full"
+          quality={80}
         />
       </motion.div>
     </div>

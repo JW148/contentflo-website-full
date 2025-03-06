@@ -57,6 +57,7 @@ export default function Navbar() {
             width={50}
             height={75}
             alt="Contentflo logo"
+            priority
           />
         </Link>
 

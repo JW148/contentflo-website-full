@@ -1,14 +1,19 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
+import { muxVideoPlugin } from "@oversightstudio/mux-video";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 
+//Collections
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
+
+//Globals
+import { Home } from "./globals/home/config";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -19,8 +24,13 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      url: process.env.NEXT_PUBLIC_PAYLOAD_URL,
+      globals: ["home"],
+    },
   },
   collections: [Users, Media],
+  globals: [Home],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
@@ -31,8 +41,32 @@ export default buildConfig({
   }),
   sharp,
   plugins: [
-    payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    muxVideoPlugin({
+      enabled: true,
+      adminThumbnail: "image",
+      initSettings: {
+        tokenId: process.env.MUX_TOKEN_ID || "",
+        tokenSecret: process.env.MUX_TOKEN_SECRET || "",
+        webhookSecret: process.env.MUX_WEBHOOK_SIGNING_SECRET || "",
+      },
+      uploadSettings: {
+        cors_origin:
+          process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
+      },
+    }),
   ],
+  email: nodemailerAdapter({
+    defaultFromAddress: "support@contentflo.io",
+    defaultFromName: "ContentFlo Support",
+    // Nodemailer transportOptions
+    transportOptions: {
+      host: process.env.SMTP_HOST,
+      port: 587,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    },
+  }),
   telemetry: false,
 });
