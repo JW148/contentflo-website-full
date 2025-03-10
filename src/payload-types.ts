@@ -87,9 +87,11 @@ export interface Config {
   };
   globals: {
     home: Home;
+    analytics: Analytics;
   };
   globalsSelect: {
     home: HomeSelect<false> | HomeSelect<true>;
+    analytics: AnalyticsSelect<false> | AnalyticsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -581,6 +583,16 @@ export interface Home {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics".
+ */
+export interface Analytics {
+  id: string;
+  shareLink?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -643,6 +655,16 @@ export interface HomeSelect<T extends boolean = true> {
   ctaTitle?: T;
   ctaSubtitle?: T;
   _status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics_select".
+ */
+export interface AnalyticsSelect<T extends boolean = true> {
+  shareLink?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
