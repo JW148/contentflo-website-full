@@ -1,27 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
-import {
-  Settings,
-  User,
-  LogOut,
-  Bell,
-  Mail,
-  Home,
-  FileText,
-  MoreHorizontal,
-} from "lucide-react";
-
 import { AnimatedDropdown, DropdownItem } from "@/components/ui/dropdown";
 
 export function UmamiAnalytics() {

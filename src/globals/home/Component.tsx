@@ -10,9 +10,10 @@ import { ProcessTimeline } from "@/components/process";
 import { Testimonials } from "@/components/testimonials/testimonials";
 import CTA from "@/components/cta";
 import { FAQ } from "@/components/faq";
+import { Home as HomeType } from "@/payload-types";
 
 export async function Home() {
-  const homeData = await getCachedGlobal("home", 1)();
+  const homeData = (await getCachedGlobal("home", 1)()) as HomeType;
   // console.log(homeData);
   const videoTestimonial = {
     video: homeData.videoTestimonial,
