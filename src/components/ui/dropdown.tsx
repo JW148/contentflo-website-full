@@ -20,8 +20,6 @@ export function AnimatedDropdown({
   trigger,
   children,
   className,
-  align = "left",
-  width = 220,
 }: AnimatedDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -56,18 +54,6 @@ export function AnimatedDropdown({
       document.removeEventListener("keydown", handleEscapeKey);
     };
   }, [isOpen]);
-
-  // Calculate alignment styles
-  const getAlignmentStyle = () => {
-    switch (align) {
-      case "right":
-        return { right: 0 };
-      case "center":
-        return { left: "50%", transform: "translateX(-50%)" };
-      default:
-        return { left: 0 };
-    }
-  };
 
   return (
     <div className={cn(className)} ref={dropdownRef}>
