@@ -88,10 +88,12 @@ export interface Config {
   globals: {
     home: Home;
     analytics: Analytics;
+    bookings: Booking;
   };
   globalsSelect: {
     home: HomeSelect<false> | HomeSelect<true>;
     analytics: AnalyticsSelect<false> | AnalyticsSelect<true>;
+    bookings: BookingsSelect<false> | BookingsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -593,6 +595,16 @@ export interface Analytics {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bookings".
+ */
+export interface Booking {
+  id: string;
+  eventLink?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -665,6 +677,16 @@ export interface HomeSelect<T extends boolean = true> {
  */
 export interface AnalyticsSelect<T extends boolean = true> {
   shareLink?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bookings_select".
+ */
+export interface BookingsSelect<T extends boolean = true> {
+  eventLink?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
