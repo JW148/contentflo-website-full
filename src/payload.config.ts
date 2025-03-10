@@ -15,6 +15,7 @@ import { Media } from "./collections/Media";
 //Globals
 import { Home } from "./globals/home/config";
 import { Analytics } from "./globals/UmamiAnalytics/config";
+import { Bookings } from "./globals/Bookings/config";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -51,7 +52,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media],
-  globals: [Home, Analytics],
+  globals: [Home, Analytics, Bookings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

@@ -1,5 +1,6 @@
 import { CTAForm } from "./ui/cta-from";
 import { RichText } from "@payloadcms/richtext-lexical/react";
+import { Booking } from "@/globals/Bookings/Component";
 import type { RichTextType } from "@/types/types";
 
 interface CTAProps {
@@ -19,6 +20,7 @@ export default function CTA({ heading, subheading }: CTAProps) {
           className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
         />
         <CTAForm />
+        <Booking />
       </div>
     </section>
   );

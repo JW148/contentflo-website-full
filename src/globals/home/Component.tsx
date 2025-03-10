@@ -14,7 +14,6 @@ import { Home as HomeType } from "@/payload-types";
 
 export async function Home() {
   const homeData = (await getCachedGlobal("home", 1)()) as HomeType;
-  // console.log(homeData);
   const videoTestimonial = {
     video: homeData.videoTestimonial,
     testimonial: {
@@ -26,7 +25,7 @@ export async function Home() {
     },
   };
   return (
-    <div className="z-10 relative ">
+    <div className="z-10 relative container">
       <RefreshRouteOnSave />
       <Hero
         header={homeData.heroHeading}
