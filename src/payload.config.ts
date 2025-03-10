@@ -14,23 +14,44 @@ import { Media } from "./collections/Media";
 
 //Globals
 import { Home } from "./globals/home/config";
+import { Analytics } from "./globals/UmamiAnalytics/config";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
+    theme: "dark",
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
+    },
+    meta: {
+      titleSuffix: "- ContentFlo",
+      title: "Dashboard",
+      description: "ContentFlo Admin Dashboard",
+      icons: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          url: "/cf_icon.ico",
+        },
+      ],
     },
     livePreview: {
       url: process.env.NEXT_PUBLIC_PAYLOAD_URL,
       globals: ["home"],
     },
+    components: {
+      beforeDashboard: ["@/components/Dashboard/BeforeDashboard"],
+      graphics: {
+        Logo: "@/components/Dashboard/AdminLogo",
+        Icon: "@/components/Dashboard/AdminIcon",
+      },
+    },
   },
   collections: [Users, Media],
-  globals: [Home],
+  globals: [Home, Analytics],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

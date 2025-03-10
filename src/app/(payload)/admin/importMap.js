@@ -24,6 +24,9 @@ import { BlockquoteFeatureClient as BlockquoteFeatureClient_e70f5e05f09f93e00b99
 import { UploadFeatureClient as UploadFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { HorizontalRuleFeatureClient as HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { IconPickerField as IconPickerField_0c7deb64d3e0c5066cb04c19ae9e566b } from '@/fields/IconPickerField'
+import { default as default_64f15f277ffa53aad435432b6cb60216 } from '@/components/Dashboard/AdminIcon'
+import { default as default_affbd2dfc51e454dcd19662e95894206 } from '@/components/Dashboard/AdminLogo'
+import { default as default_8c37cd642d872fd7a2b1c62bba89d335 } from '@/components/Dashboard/BeforeDashboard'
 
 export const importMap = {
   "@oversightstudio/mux-video/elements#MuxUploaderField": MuxUploaderField_c369a797e256de625eba826a6acb8608,
@@ -51,5 +54,8 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#BlockquoteFeatureClient": BlockquoteFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#UploadFeatureClient": UploadFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#HorizontalRuleFeatureClient": HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
-  "@/fields/IconPickerField#IconPickerField": IconPickerField_0c7deb64d3e0c5066cb04c19ae9e566b
+  "@/fields/IconPickerField#IconPickerField": IconPickerField_0c7deb64d3e0c5066cb04c19ae9e566b,
+  "@/components/Dashboard/AdminIcon#default": default_64f15f277ffa53aad435432b6cb60216,
+  "@/components/Dashboard/AdminLogo#default": default_affbd2dfc51e454dcd19662e95894206,
+  "@/components/Dashboard/BeforeDashboard#default": default_8c37cd642d872fd7a2b1c62bba89d335
 }
