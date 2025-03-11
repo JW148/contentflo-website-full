@@ -56,7 +56,7 @@ export function AnimatedDropdown({
   }, [isOpen]);
 
   return (
-    <div className={cn(className)} ref={dropdownRef}>
+    <div className={cn("relative z-50", className)} ref={dropdownRef}>
       {/* Dropdown Trigger */}
       {trigger ? (
         <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
@@ -88,9 +88,9 @@ export function AnimatedDropdown({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute z-50 mt-2 rounded-md border bg-background shadow-md w-[90%]"
+            className="absolute z-50 mt-2 rounded-md  shadow-md w-full"
           >
-            <div className="p-1">{children}</div>
+            <div>{children}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -110,17 +110,16 @@ export function DropdownItem({
   disabled?: boolean;
 }) {
   return (
-    <motion.button
+    <motion.div
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      disabled={disabled}
       className={cn(
-        "flex w-full items-center rounded-sm px-3 py-2 text-left text-sm",
+        "flex w-full items-center rounded-sm text-left text-sm",
         disabled && "pointer-events-none opacity-50",
         className
       )}
     >
       {children}
-    </motion.button>
+    </motion.div>
   );
 }
