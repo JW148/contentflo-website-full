@@ -27,7 +27,7 @@ export function ProcessTimeline({ heading, subheading, steps }: ProcessProps) {
         <div className="mx-auto mt-12 max-w-4xl">
           <div className="relative">
             {/* Vertical line */}
-            <div className=" absolute left-8 top-0 h-[85%] mt-[12vh] w-0.5 bg-gradient-to-b from-zinc-800 to-zinc-200 md:left-1/2 md:-ml-0.5 "></div>
+            <div className=" absolute left-8 top-0 h-[85%] mt-[10vh] w-0.5 bg-gradient-to-b from-zinc-800 to-zinc-200 md:left-1/2 md:-ml-0.5 "></div>
 
             {/* Timeline steps */}
             <div className="space-y-24">

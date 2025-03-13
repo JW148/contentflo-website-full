@@ -41,7 +41,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       ></Script>
 
       <body
-        className={`${GeistSans.className} bg-background text-foreground antialiased`}
+        className={`${GeistSans.className} bg-background text-foreground antialiased `}
       >
         <MouseMoveEffect />
         <Navbar />
