@@ -18,8 +18,8 @@ export function TestimonialCard({
   image,
 }: TestimonialCardProps) {
   return (
-    <div className="flex flex-col h-full border border-muted bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px] rounded-xl shadow-sm">
-      <div className="flex flex-col p-6 size-full rounded-xl bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
+    <div className="flex flex-col h-full border border-muted bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px] rounded-xl shadow-xs">
+      <div className="flex flex-col p-6 size-full rounded-xl bg-linear-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
         <div className="flex-1">
           <svg
             className="h-8 w-8 mb-4"
@@ -39,7 +39,7 @@ export function TestimonialCard({
           <RichText data={quote} />
         </div>
         <div className="flex items-center space-x-3 mt-6">
-          <div className="h-10 w-10 relative rounded-full bg-transparent backdrop-blur-sm flex items-center justify-center">
+          <div className="h-10 w-10 relative rounded-full bg-transparent backdrop-blur-xs flex items-center justify-center">
             <Image
               src={image}
               alt="Michael Rivera"

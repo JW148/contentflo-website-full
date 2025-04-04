@@ -114,7 +114,7 @@ export function DropdownItem({
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
       className={cn(
-        "flex w-full items-center rounded-sm text-left text-sm",
+        "flex w-full items-center rounded-sm text-left text-sm overflow-hidden",
         disabled && "pointer-events-none opacity-50",
         className
       )}

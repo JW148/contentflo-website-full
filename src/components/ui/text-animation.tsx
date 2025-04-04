@@ -9,7 +9,7 @@ export function TypingEffect({ text = "Typing Effect" }: { text: string }) {
   return (
     <h2
       ref={ref}
-      className="bg-gradient-to-br from-foreground from-30% via-foreground/90 to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
+      className="bg-linear-to-br from-foreground from-30% via-foreground/90 to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
     >
       {text.split("").map((letter, index) => (
         <motion.span

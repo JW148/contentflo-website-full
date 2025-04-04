@@ -73,11 +73,11 @@ export function VideoTestimonial({
         />
       )}
 
-      <div className="size-full flex flex-col p-6 justify-between absolute bg-gradient-to-t from-black to-transparent text-white rounded-xl overflow-hidden  inset-0">
+      <div className="size-full flex flex-col p-6 justify-between absolute bg-linear-to-t from-black to-transparent text-white rounded-xl overflow-hidden  inset-0">
         <div className="flex justify-end space-x-2">
           <button
             onClick={toggleMute}
-            className="rounded-full bg-black/30 p-2  backdrop-blur-sm hover:bg-black/50 transition"
+            className="rounded-full bg-black/30 p-2  backdrop-blur-xs hover:bg-black/50 transition"
             aria-label={isMuted ? "Unmute" : "Mute"}
           >
             {isMuted ? (
@@ -89,7 +89,7 @@ export function VideoTestimonial({
         </div>
         <div className="space-y-4">
           <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 relative rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <div className="h-10 w-10 relative rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center">
               <Image
                 src={companyLogo || "/placeholder.svg"}
                 alt="Person Name"
