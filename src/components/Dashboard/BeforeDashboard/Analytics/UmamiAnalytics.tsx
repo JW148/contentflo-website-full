@@ -2,7 +2,7 @@ import { AnimatedDropdown, DropdownItem } from "@/components/ui/dropdown";
 
 export function UmamiAnalytics() {
   return (
-    <div className="container flex flex-col items-center gap-2 w-full">
+    <div className=" flex flex-col items-center gap-2 w-full">
       <AnimatedDropdown className="w-full" align="center" width={"full"}>
         <DropdownItem>
           <iframe

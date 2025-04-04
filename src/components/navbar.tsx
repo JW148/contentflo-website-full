@@ -48,8 +48,8 @@ export default function Navbar() {
     },
   };
   return (
-    <header className="sticky flex flex-col top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
+    <header className="sticky flex flex-col top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
+      <div className="container flex h-16 max-w-(--breakpoint-2xl) items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex">
           <Image

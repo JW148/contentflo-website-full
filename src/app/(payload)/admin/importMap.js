@@ -27,6 +27,7 @@ import { IconPickerField as IconPickerField_0c7deb64d3e0c5066cb04c19ae9e566b } f
 import { default as default_64f15f277ffa53aad435432b6cb60216 } from '@/components/Dashboard/AdminIcon'
 import { default as default_affbd2dfc51e454dcd19662e95894206 } from '@/components/Dashboard/AdminLogo'
 import { default as default_8c37cd642d872fd7a2b1c62bba89d335 } from '@/components/Dashboard/BeforeDashboard'
+import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 
 export const importMap = {
   "@oversightstudio/mux-video/elements#MuxUploaderField": MuxUploaderField_c369a797e256de625eba826a6acb8608,
@@ -57,5 +58,6 @@ export const importMap = {
   "@/fields/IconPickerField#IconPickerField": IconPickerField_0c7deb64d3e0c5066cb04c19ae9e566b,
   "@/components/Dashboard/AdminIcon#default": default_64f15f277ffa53aad435432b6cb60216,
   "@/components/Dashboard/AdminLogo#default": default_affbd2dfc51e454dcd19662e95894206,
-  "@/components/Dashboard/BeforeDashboard#default": default_8c37cd642d872fd7a2b1c62bba89d335
+  "@/components/Dashboard/BeforeDashboard#default": default_8c37cd642d872fd7a2b1c62bba89d335,
+  "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
 }

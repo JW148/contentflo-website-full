@@ -40,7 +40,7 @@ export default function Features({
               as={"div"}
               className="relative p-0 h-full overflow-hidden border bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px] "
             >
-              <div className="flex flex-col p-8 size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
+              <div className="flex flex-col p-8 size-full bg-linear-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
                 <div className="flex items-center gap-4">
                   <Icon className="h-8 w-8" />
                   <h3 className="font-bold">{feature.title}</h3>

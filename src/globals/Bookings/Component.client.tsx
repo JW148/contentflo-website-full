@@ -8,8 +8,6 @@ interface BookingEmbedProps {
 }
 
 export function BookingEmbed({ booking }: BookingEmbedProps) {
-  console.log(booking);
-
   const { section3, section2 } = extractCalLinkSections(
     booking.eventLink || ""
   );

@@ -27,7 +27,7 @@ export function ProcessTimeline({ heading, subheading, steps }: ProcessProps) {
         <div className="mx-auto mt-12 max-w-4xl">
           <div className="relative">
             {/* Vertical line */}
-            <div className=" absolute left-8 top-0 h-[85%] mt-[12vh] w-0.5 bg-gradient-to-b from-zinc-800 to-zinc-200 md:left-1/2 md:-ml-0.5 "></div>
+            <div className=" absolute left-8 top-0 h-[85%] mt-[10vh] w-0.5 bg-linear-to-b from-zinc-800 to-zinc-200 md:left-1/2 md:-ml-0.5 "></div>
 
             {/* Timeline steps */}
             <div className="space-y-24">
@@ -53,9 +53,9 @@ export function ProcessTimeline({ heading, subheading, steps }: ProcessProps) {
                       } md:w-6/12 `}
                     >
                       <div
-                        className={`rounded-lg border shadow-sm transition-all border-muted  bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px] `}
+                        className={`rounded-lg border shadow-xs transition-all border-muted  bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px] `}
                       >
-                        <div className="size-full p-4 rounded-lg bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
+                        <div className="size-full p-4 rounded-lg bg-linear-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
                           <div className="flex items-center gap-2 mb-2">
                             <Icon />
                             <h3 className="text-lg font-semibold">

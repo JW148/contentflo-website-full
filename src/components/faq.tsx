@@ -27,7 +27,7 @@ export function FAQ({ faqs }: FAQProps) {
             collapsible
             className="w-full max-w-3xl mx-auto border-muted rounded-xl border   bg-[url(/noise.svg)] bg-repeat bg-[length:500px_500px]"
           >
-            <div className="size-full rounded-xl  p-4 bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
+            <div className="size-full rounded-xl  p-4 bg-linear-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}

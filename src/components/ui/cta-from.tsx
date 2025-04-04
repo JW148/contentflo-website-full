@@ -56,7 +56,7 @@ export function CTAForm() {
         ref={ref}
       >
         <input
-          className="flex h-10 w-full rounded-md border border-muted  bg-zinc-950 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium  focus-visible:outline-none  disabled:cursor-not-allowed disabled:opacity-50 text-zinc-300"
+          className="flex h-10 w-full rounded-md border border-muted  bg-zinc-950 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium  focus-visible:outline-hidden  disabled:cursor-not-allowed disabled:opacity-50 text-zinc-300"
           type="text"
           name="name"
           placeholder="Your Name"
@@ -73,7 +73,7 @@ export function CTAForm() {
           autoComplete="off"
         />
         <input
-          className="flex h-10 mt-3 w-full rounded-md border border-muted bg-zinc-950 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium  focus-visible:outline-none  disabled:cursor-not-allowed disabled:opacity-50 text-zinc-300"
+          className="flex h-10 mt-3 w-full rounded-md border border-muted bg-zinc-950 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium  focus-visible:outline-hidden  disabled:cursor-not-allowed disabled:opacity-50 text-zinc-300"
           type="text"
           name="email"
           placeholder="Your Email Address"
