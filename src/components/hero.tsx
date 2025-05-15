@@ -50,7 +50,7 @@ export default function Hero({
         <Button asChild size={"lg"}>
           <a href="#section1">Learn More</a>
         </Button>
-        <Button variant="outline" size="lg" asChild>
+        <Button variant={"outline"} size="lg" asChild>
           <a href="#cta">Schedule a Demo</a>
         </Button>
       </div>

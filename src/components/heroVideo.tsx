@@ -37,6 +37,7 @@ export function HeroVideo({ heroVideo }: HeroVideoProps) {
   }, []);
 
   if (isMobile) return null;
+  if (!heroVideo) return null;
 
   return (
     <motion.div
