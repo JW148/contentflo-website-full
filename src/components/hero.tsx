@@ -4,6 +4,8 @@ import { FlipWords } from "./ui/flip-words";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 
 import type { RichTextType } from "@/types/types";
+import { MuxVideo } from "@/payload-types";
+import { HeroVideo } from "./heroVideo";
 
 interface HeroProps {
   header: string;
@@ -11,12 +13,20 @@ interface HeroProps {
     word: string;
   }[];
   subheading: RichTextType;
+  heroVideo: string | MuxVideo;
 }
 
-export default function Hero({ header, flipWords, subheading }: HeroProps) {
+export default function Hero({
+  header,
+  flipWords,
+  subheading,
+  heroVideo,
+}: HeroProps) {
   const cleanFlipWords = flipWords.map((item) => item.word);
+  console.log(heroVideo);
   return (
-    <section className="container flex min-h-[calc(100vh-3.5rem)] max-w-(--breakpoint-2xl) flex-col items-center justify-center space-y-8 py-24 text-center md:py-32">
+    <section className="relative overflow-hidden flex min-h-[calc(100vh-3.5rem)] w-full flex-col items-center justify-center space-y-8 py-24 text-center md:py-32">
+      {typeof heroVideo !== "string" && <HeroVideo heroVideo={heroVideo} />}
       <div className="space-y-4">
         <HoverBorderGradient
           containerClassName="rounded-full mx-auto"
@@ -34,7 +44,7 @@ export default function Hero({ header, flipWords, subheading }: HeroProps) {
         </h1>
         <RichText
           data={subheading}
-          className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
+          className="mx-auto max-w-[42rem] leading-normal text-gray-200 sm:text-xl sm:leading-8"
         />
       </div>
       <div className="flex flex-col md:flex-row gap-4">
