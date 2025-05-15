@@ -21,7 +21,6 @@ export function CTAForm() {
   });
 
   useEffect(() => {
-    console.log(state);
     if (state.isError === false)
       toast.success(state.response, {
         icon: "🎉",

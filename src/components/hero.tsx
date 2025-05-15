@@ -23,7 +23,6 @@ export default function Hero({
   heroVideo,
 }: HeroProps) {
   const cleanFlipWords = flipWords.map((item) => item.word);
-  console.log(heroVideo);
   return (
     <section className="relative overflow-hidden flex min-h-[calc(100vh-3.5rem)] w-full flex-col items-center justify-center space-y-8 py-24 text-center md:py-32">
       {typeof heroVideo !== "string" && <HeroVideo heroVideo={heroVideo} />}
