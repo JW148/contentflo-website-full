@@ -102,6 +102,13 @@ export const Home: GlobalConfig = {
             },
           }),
         },
+        {
+          name: "heroVideo",
+          label: "Hero Video",
+          required: true,
+          type: "relationship",
+          relationTo: "mux-video",
+        },
       ],
     },
     {

@@ -35,7 +35,7 @@ export function Testimonials({
 
   return (
     <section className="flex flex-col space-y-16 py-24 md:py-32">
-      <div className="mx-auto max-w-[58rem] text-center ">
+      <div className="container mx-auto max-w-[58rem] text-center ">
         <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl">
           {heading}
         </h2>

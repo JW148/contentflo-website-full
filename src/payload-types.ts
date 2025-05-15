@@ -522,6 +522,7 @@ export interface Home {
     };
     [k: string]: unknown;
   };
+  heroVideo: string | MuxVideo;
   previewHeading: string;
   previewSubheading: {
     root: {
@@ -752,6 +753,7 @@ export interface HomeSelect<T extends boolean = true> {
         id?: T;
       };
   heroSubheading?: T;
+  heroVideo?: T;
   previewHeading?: T;
   previewSubheading?: T;
   previewImage?: T;
