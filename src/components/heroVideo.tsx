@@ -3,7 +3,7 @@
 import { MuxVideo } from "@/payload-types";
 import MuxPlayer from "@mux/mux-player-react";
 import { motion, useScroll, useSpring } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface HeroVideoProps {
   heroVideo: MuxVideo;
@@ -11,6 +11,7 @@ interface HeroVideoProps {
 
 export function HeroVideo({ heroVideo }: HeroVideoProps) {
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["end 10vh", "start start"],
@@ -21,6 +22,21 @@ export function HeroVideo({ heroVideo }: HeroVideoProps) {
     damping: 30,
     restDelta: 0.001,
   });
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Or window.screen.width
+    };
+
+    checkIsMobile(); // Initial check
+    window.addEventListener("resize", checkIsMobile); // Re-check on resize
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile); // Clean up listener
+    };
+  }, []);
+
+  if (isMobile) return null;
 
   return (
     <motion.div
