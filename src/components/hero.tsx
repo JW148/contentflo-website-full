@@ -26,7 +26,7 @@ export default function Hero({
   return (
     <section className="relative overflow-hidden flex min-h-[calc(100vh-3.5rem)] w-full flex-col items-center justify-center space-y-8 py-24 text-center md:py-32">
       {typeof heroVideo !== "string" && <HeroVideo heroVideo={heroVideo} />}
-      <div className="space-y-4">
+      <div className="space-y-4 container">
         <HoverBorderGradient
           containerClassName="rounded-full mx-auto"
           as="button"

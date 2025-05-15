@@ -1,9 +1,10 @@
 "use client";
 
 import { MuxVideo } from "@/payload-types";
+import { useDeviceType } from "@/utilities/useDeviceType";
 import MuxPlayer from "@mux/mux-player-react";
 import { motion, useScroll, useSpring } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 interface HeroVideoProps {
   heroVideo: MuxVideo;
@@ -11,7 +12,6 @@ interface HeroVideoProps {
 
 export function HeroVideo({ heroVideo }: HeroVideoProps) {
   const containerRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["end 10vh", "start start"],
@@ -23,18 +23,7 @@ export function HeroVideo({ heroVideo }: HeroVideoProps) {
     restDelta: 0.001,
   });
 
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth <= 768); // Or window.screen.width
-    };
-
-    checkIsMobile(); // Initial check
-    window.addEventListener("resize", checkIsMobile); // Re-check on resize
-
-    return () => {
-      window.removeEventListener("resize", checkIsMobile); // Clean up listener
-    };
-  }, []);
+  const isMobile = useDeviceType();
 
   if (isMobile) return null;
   if (!heroVideo) return null;
@@ -57,7 +46,6 @@ export function HeroVideo({ heroVideo }: HeroVideoProps) {
         loop
         playsInline
         autoPlay
-        className=" "
       />
       <div className="absolute inset-0 bg-black/30 backdrop-blur-xs" />
     </motion.div>

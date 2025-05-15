@@ -1,6 +1,7 @@
 // components/TransitionWrapper.tsx
 "use client";
 
+import { useDeviceType } from "@/utilities/useDeviceType";
 import { motion, useInView, Variants } from "framer-motion";
 import React, { ReactNode, useRef } from "react";
 import type { JSX } from "react";
@@ -35,6 +36,10 @@ export default function TransitionWrapper({
 }: TransitionWrapperProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-200px", once: false });
+
+  //disable the transition effect on mobile
+  const isMobile = useDeviceType();
+  if (isMobile) return <div>{children}</div>;
 
   return (
     <motion.div
