@@ -1,7 +1,7 @@
 "use client";
 
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import MuxVideo from "@mux/mux-video-react";
 import Image from "next/image";
 import type { TestimonialsType } from "@/types/types";
