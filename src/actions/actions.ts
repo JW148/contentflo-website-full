@@ -6,6 +6,9 @@
 import { Client } from "@notionhq/client";
 import { Resend } from "resend";
 import EmailTemplate from "@/components/ui/email-template";
+import { getPayload } from "payload";
+import configPromise from "@payload-config";
+import { cache } from "react";
 
 export async function register(state, formData) {
   const { name, email } = Object.fromEntries(formData.entries());
@@ -55,3 +58,36 @@ export async function register(state, formData) {
     };
   }
 }
+
+export async function getBlogs() {
+  try {
+    const payload = await getPayload({ config: configPromise });
+    const blogs = await payload.find({
+      collection: "blog",
+      pagination: false,
+      sort: "-createdAt",
+    });
+    return blogs.docs;
+  } catch (error) {
+    console.error("Error loading blogs", error);
+  }
+}
+
+export const getBlogBySlug = cache(async (slug: string) => {
+  try {
+    const payload = await getPayload({ config: configPromise });
+    const blog = await payload.find({
+      collection: "blog",
+      pagination: false,
+      limit: 1,
+      where: {
+        slug: {
+          equals: slug,
+        },
+      },
+    });
+    return blog.docs[0];
+  } catch (error) {
+    console.error("Failed to fetch blog", error);
+  }
+});

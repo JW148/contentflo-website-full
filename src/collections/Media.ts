@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { authenticated } from "../access/authenticated";
+import { authenticatedOrPublished } from "../access/authenticatedOrPublished";
 
 export const Media: CollectionConfig = {
   slug: "media",
@@ -7,7 +8,7 @@ export const Media: CollectionConfig = {
     create: authenticated,
     delete: authenticated,
     update: authenticated,
-    read: () => true,
+    read: authenticatedOrPublished,
   },
   admin: {
     group: "Miscellaneous",
@@ -27,37 +28,43 @@ export const Media: CollectionConfig = {
     adminThumbnail: "thumbnail",
     focalPoint: true,
     displayPreview: true,
+    formatOptions: {
+      format: "webp",
+      options: {
+        quality: 75,
+      },
+    },
     imageSizes: [
       {
         name: "thumbnail",
         width: 300,
+        formatOptions: {
+          format: "webp",
+          options: {
+            quality: 75,
+          },
+        },
       },
+      //used for open graph image
       {
-        name: "square",
-        width: 500,
-        height: 500,
+        name: "openGraph",
+        formatOptions: {
+          format: "jpg",
+          options: {
+            quality: 75,
+          },
+        },
       },
-      {
-        name: "small",
-        width: 600,
-      },
-      {
-        name: "medium",
-        width: 900,
-      },
+      //used for large images that
       {
         name: "large",
-        width: 1400,
-      },
-      {
-        name: "xlarge",
-        width: 1920,
-      },
-      {
-        name: "og",
-        width: 1200,
-        height: 630,
-        crop: "center",
+        width: 1000,
+        formatOptions: {
+          format: "webp",
+          options: {
+            quality: 75,
+          },
+        },
       },
     ],
   },
