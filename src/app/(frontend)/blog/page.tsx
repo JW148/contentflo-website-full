@@ -16,9 +16,18 @@ export default async function Blog() {
             grow your online presence.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-4">
-          {blogs && blogs.map((blog) => <BlogCard blog={blog} key={blog.id} />)}
-        </div>
+        {blogs && blogs.length > 0 ? (
+          <div className="grid grid-cols-3 gap-4">
+            {blogs &&
+              blogs.map((blog) => <BlogCard blog={blog} key={blog.id} />)}
+          </div>
+        ) : (
+          <div className="flex w-full h-[50vh] items-center justify-center">
+            <p className="text-xl text-muted-foreground">
+              Nothing here yet - check back soon!
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
