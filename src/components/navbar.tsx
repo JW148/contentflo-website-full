@@ -16,6 +16,10 @@ export default function Navbar() {
   const navLinks = [
     { href: "#section1", label: "Solution" },
     { href: "/about", label: "About Us" },
+    {
+      href: "/blog",
+      label: "Blog",
+    },
   ];
 
   const socialLinks = [
