@@ -39,7 +39,6 @@ export function PayloadImage({
   //Determine what image to use based on whether the large size exists
   //If it does, it means that the image is a large image and has been optimised accordingly and should be used instead of URL
   const imageURL = sizes?.large?.url ? sizes.large.url : url;
-  console.log("image url", imageURL);
 
   return (
     <Image

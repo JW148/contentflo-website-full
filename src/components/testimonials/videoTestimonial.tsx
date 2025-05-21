@@ -36,14 +36,6 @@ export function VideoTestimonial({
     }
   };
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.onloadeddata = function () {
-        console.log("video loaded");
-      };
-    }
-  }, [videoRef]);
-
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;

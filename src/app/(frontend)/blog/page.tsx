@@ -3,7 +3,6 @@ import { BlogCard } from "@/components/Blog/blog-card";
 
 export default async function Blog() {
   const blogs = await getBlogs();
-  console.log(blogs);
   return (
     <div className="flex min-h-screen ">
       <div className="container py-20 flex flex-col space-y-20">
