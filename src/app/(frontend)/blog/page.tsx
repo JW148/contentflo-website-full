@@ -1,5 +1,6 @@
 import { getBlogs } from "@/actions/actions";
 import { BlogCard } from "@/components/Blog/blog-card";
+export const dynamic = "force-dynamic";
 
 export default async function Blog() {
   const blogs = await getBlogs();
