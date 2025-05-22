@@ -12,7 +12,6 @@ export const Blog: CollectionConfig = {
       if (user) {
         return true;
       }
-
       //if there is no authenticated user, return a query that checks if the isPublic field it true, otherwise it cannot be read
       return {
         isPublic: {
