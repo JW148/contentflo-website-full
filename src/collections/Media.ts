@@ -1,6 +1,5 @@
 import type { CollectionConfig } from "payload";
 import { authenticated } from "../access/authenticated";
-import { authenticatedOrPublished } from "../access/authenticatedOrPublished";
 
 export const Media: CollectionConfig = {
   slug: "media",
@@ -8,7 +7,7 @@ export const Media: CollectionConfig = {
     create: authenticated,
     delete: authenticated,
     update: authenticated,
-    read: authenticatedOrPublished,
+    read: () => true,
   },
   admin: {
     group: "Miscellaneous",

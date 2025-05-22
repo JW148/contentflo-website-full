@@ -66,6 +66,7 @@ export async function getBlogs() {
       collection: "blog",
       pagination: false,
       sort: "-createdAt",
+      overrideAccess: false,
     });
     return blogs.docs;
   } catch (error) {
@@ -79,6 +80,7 @@ export const getBlogBySlug = cache(async (slug: string) => {
     const blog = await payload.find({
       collection: "blog",
       pagination: false,
+      overrideAccess: false,
       limit: 1,
       where: {
         slug: {

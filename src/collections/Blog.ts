@@ -1,5 +1,4 @@
 import { authenticated } from "@/access/authenticated";
-import { authenticatedOrPublished } from "@/access/authenticatedOrPublished";
 import { editor } from "@/fields/Editor/Editor";
 import { slugField } from "@/fields/slug";
 import type { CollectionConfig } from "payload";
@@ -8,7 +7,19 @@ export const Blog: CollectionConfig = {
   slug: "blog",
   access: {
     create: authenticated,
-    read: authenticatedOrPublished,
+    read: ({ req: { user } }) => {
+      // Allow authenticated users
+      if (user) {
+        return true;
+      }
+
+      //if there is no authenticated user, return a query that checks if the isPublic field it true, otherwise it cannot be read
+      return {
+        isPublic: {
+          equals: true,
+        },
+      };
+    },
     update: authenticated,
     delete: authenticated,
   },
@@ -48,6 +59,17 @@ export const Blog: CollectionConfig = {
       type: "richText",
       required: true,
       editor: editor,
+    },
+    {
+      name: "isPublic",
+      label: "Make blog public",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        description:
+          "Blog won't be visible on the website unless this is checked",
+        position: "sidebar",
+      },
     },
     ...slugField(),
   ],

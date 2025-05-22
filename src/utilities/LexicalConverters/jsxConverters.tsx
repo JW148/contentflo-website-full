@@ -70,7 +70,7 @@ export const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
   ),
   upload: ({ node }) => (
     <div className="flex  w-full  justify-center items-center">
-      <div className="flex relative w-full  md:w-[50vw] md:h-[75vh]">
+      <div className="flex relative w-full h-[50vh]  md:w-[50vw] md:h-[75vh]">
         <PayloadImage image={node.value as Media} />
       </div>
     </div>
