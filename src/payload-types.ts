@@ -231,6 +231,10 @@ export interface Blog {
     };
     [k: string]: unknown;
   };
+  /**
+   * Blog won't be visible on the website unless this is checked
+   */
+  isPublic?: boolean | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -411,6 +415,7 @@ export interface BlogSelect<T extends boolean = true> {
   author?: T;
   coverImage?: T;
   body?: T;
+  isPublic?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
