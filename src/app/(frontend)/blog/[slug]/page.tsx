@@ -1,13 +1,10 @@
 import { getBlogBySlug } from "@/actions/actions";
-import { PayloadImage } from "@/components/Image/PayloadImage";
-import { formatDateTime } from "@/utilities/formatDateTime";
-import { jsxConverters } from "@/utilities/LexicalConverters/jsxConverters";
-import { RichText } from "@payloadcms/richtext-lexical/react";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import type { Metadata } from "next";
+import { Article } from "@/components/Blog/article";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -25,7 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
 
+  const ogImage =
+    typeof blog.coverImage !== "string" && blog.coverImage.sizes?.openGraph?.url
+      ? blog.coverImage.sizes?.openGraph?.url
+      : "/dddepth-276.jpg";
+
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL as string),
     title: blog.title,
     description: blog.subtitle,
     openGraph: {
@@ -34,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       locale: "en_UK",
       siteName: "ContentFlo",
+      images: ogImage,
     },
   };
 }
@@ -60,23 +64,7 @@ export default async function BlogPostPage({
         Back to all posts
       </Link>
 
-      <article className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
-          {blog.title}
-        </h1>
-
-        <div className="flex items-center text-muted-foreground mb-8">
-          <span>{blog.author}</span>
-          <span className="mx-2">•</span>
-          <span>{formatDateTime(blog.createdAt)}</span>
-        </div>
-
-        <div className="relative w-full h-[400px] mb-8">
-          <PayloadImage image={blog.coverImage} />
-        </div>
-
-        <RichText data={blog.body} converters={jsxConverters} />
-      </article>
+      <Article blog={blog} />
     </div>
   );
 }
